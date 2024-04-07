@@ -32,7 +32,7 @@ const Main = {
 
   getTasksFromAPI: async function() {
       try {
-          const response = await fetch(this.apiUrl)
+          const response = await fetch(Main.apiUrl)
           if (!response.ok) {
               throw new Error('Erro ao obter as tarefas da API')
           }
@@ -138,10 +138,10 @@ const Main = {
 
       removeButton_click: async function(e) {
           const li = e.target.parentElement
-          const value = li.dataset['id']
+          const id = li.dataset['id']
 
           try {
-              const response = await fetch(`${Main.apiUrl}/${value}`, {
+              const response = await fetch(`${Main.apiUrl}/${id}`, {
                   method: 'DELETE'
               })
 
